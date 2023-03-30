@@ -6,7 +6,6 @@ var specs = [' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '
   ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'];
 var passLength = 0;
 var validLength = false;
-var validChars = false;
 var passChars = [];
 
 // generate password by asking for desired length (and validating), confirming each character type, adding relevant character type arrays to the password generation array, and then calling the genFromArray() function
@@ -23,31 +22,27 @@ function generatePassword() {
   do {
     if (confirm("Would you like your password to include lowercase letters?")) {
       passChars.concat(lowers);
-      validChars = true;
     }
     if (confirm("Would you like your password to include uppercase letters?")) {
       passChars.concat(uppers);
-      validChars = true;
     }
     if (confirm("Would you like your password to include numbers?")) {
       passChars.concat(nums);
-      validChars = true;
     }
     if (confirm("Would you like your password to include lowercase letters?")) {
       passChars.concat(specs);
-      validChars = true;
     }
-    if (!validChars) {
+    if (passChars.length === 0) {
       alert("You must select at least one character type to include in your password.")
     }
-  } while (!validChars);
+  } while (passChars.length === 0);
   return genFromArray(passChars);
 }
 
 function genFromArray(chars) {
   var pass = "";
   for (i = 0; i < passLength; i++) {
-    pass = 
+    pass = pass + chars[Math.floor(Math.random() * chars.length)];
   }
 }
 
