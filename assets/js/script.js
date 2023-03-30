@@ -14,23 +14,23 @@ function generatePassword() {
   validLength = false;
   passChars = [];
   do {
-    passLength = prompt("How long would you like your password to be? (8-128)");
-    if (!Number.isInteger(numChars) || numChars < 8 || numChars > 128) {
+    passLength = parseInt(prompt("How long would you like your password to be? (8-128)"));
+    if (!Number.isInteger(passLength) || passLength < 8 || passLength > 128) {
       alert("Password must be a number from 8 to 128.");
     } else validLength = true;
   } while (!validLength);
   do {
     if (confirm("Would you like your password to include lowercase letters?")) {
-      passChars.concat(lowers);
+      passChars = passChars.concat(lowers);
     }
     if (confirm("Would you like your password to include uppercase letters?")) {
-      passChars.concat(uppers);
+      passChars = passChars.concat(uppers);
     }
     if (confirm("Would you like your password to include numbers?")) {
-      passChars.concat(nums);
+      passChars = passChars.concat(nums);
     }
     if (confirm("Would you like your password to include lowercase letters?")) {
-      passChars.concat(specs);
+      passChars = passChars.concat(specs);
     }
     if (passChars.length === 0) {
       alert("You must select at least one character type to include in your password.")
@@ -44,6 +44,7 @@ function genFromArray(chars) {
   for (i = 0; i < passLength; i++) {
     pass = pass + chars[Math.floor(Math.random() * chars.length)];
   }
+  return pass;
 }
 
 // Get references to the #generate element
