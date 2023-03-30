@@ -16,7 +16,7 @@ function generatePassword() {
   do {
     passLength = parseInt(prompt("How long would you like your password to be? (8-128)"));
     if (!Number.isInteger(passLength) || passLength < 8 || passLength > 128) {
-      alert("Password must be a number from 8 to 128.");
+      alert("Password length must be a number from 8 to 128.");
     } else validLength = true;
   } while (!validLength);
   do {
@@ -39,6 +39,7 @@ function generatePassword() {
   return genFromArray(passChars);
 }
 
+// take in array of characters selected for inclusion in password generation, iterate based on selected password length, and add randomly selected values from array to password string; return password string
 function genFromArray(chars) {
   var pass = "";
   for (i = 0; i < passLength; i++) {
