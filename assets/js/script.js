@@ -1,40 +1,41 @@
 // Assignment code here
 var lowers = 'abcdefghijklmnopqrstuvwxyz'.split('');
-console.log(lowers);
 var uppers = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 var nums = '1234567890'.split('');
 var specs = [' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',
   ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'];
-var numChars = 0;
+var passLength = 0;
 var validLength = false;
-var containsLows = false;
-var containsCaps = false;
-var containsNums = false;
-var containsSpecs = false;
 var passChars = [];
 
 function generatePassword () {
+  validLength = false;
   do {
-    numChars = prompt("How long would you like your password to be? (8-128)");
+    passLength = prompt("How long would you like your password to be? (8-128)");
     if (!Number.isInteger(numChars) || numChars < 8 || numChars > 128) {
       alert("Password must be a number from 8 to 128.");
     } else validLength = true;
   } while (!validLength);
-  containsLows = confirm("Would you like your password to include lowercase letters?");
-  containsCaps = confirm("Would you like your password to include uppercase letters?");
-  containsNums = confirm("Would you like your password to include numbers?");
-  containsSpecs = confirm("Would you like your password to include lowercase letters?");
-  passChars = addChars(containsLows, containsCaps, containsNums, containsSpecs);
+  if (confirm("Would you like your password to include lowercase letters?")) {
+    passChars.concat(lowers);
+  }
+  if (confirm("Would you like your password to include uppercase letters?")) {
+    passChars.concat(uppers);
+  }
+  if (confirm("Would you like your password to include numbers?")) {
+    passChars.concat(nums);
+  }
+  if (confirm("Would you like your password to include lowercase letters?")) {
+    passChars.concat(specs);
+  }
   return genFromArray(passChars);
 }
 
-function addChars(lows, caps, nums, specs) {
-  var chars = [];
-
-}
-
 function genFromArray(chars) {
-
+  var pass = "";
+  for (i = 0; i < passLength; i++) {
+    pass = 
+  }
 }
 
 // Get references to the #generate element
