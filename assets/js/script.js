@@ -2,7 +2,7 @@
 var lowers = 'qwertyuiopasdfghjklzxcvbnm'.split('');
 var uppers = 'QWERTYUIOPASDFGHJKLZXCVBNM'.split('');
 var nums = '1234567890'.split('');
-var specs = [' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',
+var specs = ['!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',
   ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'];
 var passLength = 0;
 var validLength = false;
