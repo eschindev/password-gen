@@ -29,7 +29,7 @@ function generatePassword() {
     if (confirm("Would you like your password to include numbers?")) {
       passChars = passChars.concat(nums);
     }
-    if (confirm("Would you like your password to include lowercase letters?")) {
+    if (confirm("Would you like your password to include special characters?")) {
       passChars = passChars.concat(specs);
     }
     if (passChars.length === 0) {
